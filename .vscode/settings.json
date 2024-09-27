@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "1bit jam.sln"
+    "dotnet.defaultSolution": "1bit-jam-entry.sln"
 }
