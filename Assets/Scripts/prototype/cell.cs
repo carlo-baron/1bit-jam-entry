@@ -30,10 +30,10 @@ public class cell : MonoBehaviour
             }
         }
 
-        StartCoroutine(DelayedUpdate(1));
+        StartCoroutine(DelayedUpdate(0.5f));
     }
 
-    private IEnumerator DelayedUpdate(int delay)
+    private IEnumerator DelayedUpdate(float delay)
     {
         while (true)
         {
