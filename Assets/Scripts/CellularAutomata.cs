@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cell : MonoBehaviour
+public class CellularAutomata : MonoBehaviour
 {
     int camSize = 1000;
-    int cellSize = 100;
+    int cellSize = 50;
     public int[,] grid;
     GameObject[,] objGrid;
     int rows;
     int cols;
 
-
+    public float delay;
     public GameObject Tile;
     void Start()
     {
@@ -24,13 +24,13 @@ public class cell : MonoBehaviour
         {
             for (int j = 0; j < cols; j++)
             {
-                grid[i, j] = 0;
+                grid[i, j] = 1;
                 Vector3 newPos = new Vector2(i, j);
                 objGrid[i, j] = Instantiate(Tile, transform.position + newPos, Quaternion.identity, transform);
             }
         }
 
-        StartCoroutine(DelayedUpdate(0.5f));
+        StartCoroutine(DelayedUpdate(delay));
     }
 
     private IEnumerator DelayedUpdate(float delay)

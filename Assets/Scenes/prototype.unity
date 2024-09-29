@@ -251,4 +251,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8130e3ffba1165c42bfa45cc39170b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 0.05
   Tile: {fileID: 7701501745444994260, guid: eec341ae2b794384fafd7cde6450b470, type: 3}

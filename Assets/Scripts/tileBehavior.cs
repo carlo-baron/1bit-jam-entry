@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class tileBehavior : MonoBehaviour
 {
-   cell cellScript;
+   CellularAutomata cellScript;
 
     void Awake(){
-        cellScript = transform.parent.GetComponent<cell>();
+        cellScript = transform.parent.GetComponent<CellularAutomata>();
     }
     void OnMouseDown(){
-        cellScript.grid[(int)transform.localPosition.x, (int)transform.localPosition.y] = 1;
+        cellScript.grid[(int)transform.localPosition.x, (int)transform.localPosition.y] = 0;
     }
 }
