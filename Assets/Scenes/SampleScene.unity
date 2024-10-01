@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 114279276}
   - component: {fileID: 114279277}
+  - component: {fileID: 114279280}
+  - component: {fileID: 114279281}
   m_Layer: 0
   m_Name: Tilemaker
   m_TagString: Untagged
@@ -170,6 +172,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.01
   Tile: {fileID: 7701501745444994260, guid: eec341ae2b794384fafd7cde6450b470, type: 3}
+--- !u!114 &114279280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114279274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbbf618c5ce18043840d8aa7cd17b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!68 &114279281
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114279274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1257409178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -322,10 +358,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1934121602}
   - component: {fileID: 1934121601}
-  - component: {fileID: 1934121605}
   - component: {fileID: 1934121604}
-  - component: {fileID: 1934121603}
   - component: {fileID: 1934121606}
+  - component: {fileID: 1934121607}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -400,22 +435,6 @@ Transform:
   m_Father: {fileID: 114279276}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1934121603
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934121600}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &1934121604
 Rigidbody2D:
   serializedVersion: 4
@@ -437,7 +456,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1934121605
+--- !u!58 &1934121606
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934121600}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1934121607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -450,18 +485,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
---- !u!114 &1934121606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934121600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fbbf618c5ce18043840d8aa7cd17b00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2133003685
 GameObject:
   m_ObjectHideFlags: 0

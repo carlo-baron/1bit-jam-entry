@@ -25,8 +25,6 @@ public class CellularAutomata : MonoBehaviour
             for (int j = 0; j < cols; j++)
             {
                 grid[i, j] = 1;
-                Vector3 newPos = new Vector2(i, j);
-                objGrid[i, j] = Instantiate(Tile, transform.position + newPos, Quaternion.identity, transform);
             }
         }
 
@@ -41,9 +39,14 @@ public class CellularAutomata : MonoBehaviour
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    Color temp = objGrid[i, j].GetComponent<SpriteRenderer>().color;
-                    temp.a = grid[i, j];
-                    objGrid[i, j].GetComponent<SpriteRenderer>().color = temp;
+                    if(grid[i,j] == 0){
+                        Destroy(objGrid[i,j]);
+                    }else if(grid[i,j] == 1){
+                        if(objGrid[i,j] == null){
+                            Vector3 newPos = new Vector2(i, j);
+                            objGrid[i,j] = Instantiate(Tile, transform.position + newPos, Quaternion.identity, transform);
+                        }
+                    }
                 }
             }
 

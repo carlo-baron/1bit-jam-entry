@@ -1,31 +1,34 @@
-using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bounds : MonoBehaviour
 {
-    CellularAutomata cellularAutomata;
-    void Awake()
-    {
-        cellularAutomata = transform.parent.GetComponent<CellularAutomata>();
+    EdgeCollider2D edge;
+
+    void Awake(){
+        edge = GetComponent<EdgeCollider2D>();
     }
-
-    void LateUpdate()
+    void Start(){
+        UpdateBounds();
+    }
+    public void UpdateBounds()
     {
-        int x = (int)transform.localPosition.x;
-        int y = (int)transform.localPosition.y;
-        int state = cellularAutomata.grid[x, y];
-        if(y > 0){
-            if (state == 1)
-            {
-                int top = cellularAutomata.grid[x, y + 1];
-                int right = cellularAutomata.grid[x + 1, y];
-                int left = cellularAutomata.grid[x - 1, y];
+        Rigidbody2D rb = transform.AddComponent<Rigidbody2D>();
+        rb.isKinematic = true;
+        CompositeCollider2D comp = transform.AddComponent<CompositeCollider2D>();
 
-                if(top == 0){
-                    print("bound");
-                }
-            }
+        int pathCount = comp.pathCount;
+        List<Vector2> edgePoints = new List<Vector2>();
+
+        for (int i = 0; i < pathCount; i++)
+        {
+            Vector2[] points = new Vector2[comp.GetPathPointCount(i)];
+            comp.GetPath(i, points);
+            edgePoints.AddRange(points);
         }
+        edge.points = edgePoints.ToArray();
+        // Destroy(comp);
+        // Destroy(rb);
     }
 }
