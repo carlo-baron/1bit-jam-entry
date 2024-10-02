@@ -8,8 +8,10 @@ public class tileBehavior : MonoBehaviour
     {
         cellularAutomata = transform.parent.GetComponent<CellularAutomata>();
     }
-    void OnMouseDown()
+    void OnMouseOver()
     {
-        cellularAutomata.grid[(int)transform.localPosition.x, (int)transform.localPosition.y] = 0;
+        if(Input.GetMouseButtonDown(1)){
+            cellularAutomata.grid[(int)transform.localPosition.x, (int)transform.localPosition.y] = 0;
+        }
     }
 }
