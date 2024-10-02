@@ -11,6 +11,5 @@ public class tileBehavior : MonoBehaviour
     void OnMouseDown()
     {
         cellularAutomata.grid[(int)transform.localPosition.x, (int)transform.localPosition.y] = 0;
-        // bounds.UpdateBounds();
     }
 }

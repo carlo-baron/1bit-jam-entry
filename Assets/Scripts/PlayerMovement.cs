@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -5,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     public float moveSpeed;
     Rigidbody2D rb;
+
 
     void Awake(){
         rb = GetComponent<Rigidbody2D>();

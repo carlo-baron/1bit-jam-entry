@@ -8,7 +8,7 @@ public class CellularAutomata : MonoBehaviour
     int camSize = 1000;
     int cellSize = 50;
     public int[,] grid;
-    GameObject[,] objGrid;
+    public GameObject[,] objGrid { get; private set; }
     int rows;
     int cols;
 
@@ -16,10 +16,12 @@ public class CellularAutomata : MonoBehaviour
     public GameObject Tile;
 
     Bounds bounds;
+    PlayerBoundPos playerBound;
 
     void Awake()
     {
         bounds = GetComponent<Bounds>();
+        playerBound = GetComponentInChildren<PlayerBoundPos>();
     }
     void Start()
     {
@@ -102,10 +104,11 @@ public class CellularAutomata : MonoBehaviour
                     }
                 }
             }
-            
+
             if (sameGrid)
             {
-                bounds.UpdateBounds();
+                bounds?.UpdateBounds();
+                playerBound?.UpdatePos();
             }
 
             grid = nextGrid;
