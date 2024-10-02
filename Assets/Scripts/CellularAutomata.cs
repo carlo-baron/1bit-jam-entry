@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CellularAutomata : MonoBehaviour
@@ -13,6 +14,13 @@ public class CellularAutomata : MonoBehaviour
 
     public float delay;
     public GameObject Tile;
+
+    Bounds bounds;
+
+    void Awake()
+    {
+        bounds = GetComponent<Bounds>();
+    }
     void Start()
     {
         rows = camSize / cellSize;
@@ -39,18 +47,23 @@ public class CellularAutomata : MonoBehaviour
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    if(grid[i,j] == 0){
-                        Destroy(objGrid[i,j]);
-                    }else if(grid[i,j] == 1){
-                        if(objGrid[i,j] == null){
+                    if (grid[i, j] == 0)
+                    {
+                        Destroy(objGrid[i, j]);
+                    }
+                    else if (grid[i, j] == 1)
+                    {
+                        if (objGrid[i, j] == null)
+                        {
                             Vector3 newPos = new Vector2(i, j);
-                            objGrid[i,j] = Instantiate(Tile, transform.position + newPos, Quaternion.identity, transform);
+                            objGrid[i, j] = Instantiate(Tile, transform.position + newPos, Quaternion.identity, transform);
                         }
                     }
                 }
             }
 
             int[,] nextGrid = makeGrid(rows, cols);
+            bool sameGrid = true;
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
@@ -77,6 +90,24 @@ public class CellularAutomata : MonoBehaviour
                     }
                 }
             }
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (nextGrid[i, j] != grid[i, j])
+                    {
+                        sameGrid = false;
+                        break;
+                    }
+                }
+            }
+            
+            if (sameGrid)
+            {
+                bounds.UpdateBounds();
+            }
+
             grid = nextGrid;
             yield return new WaitForSeconds(delay);
         }

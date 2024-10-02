@@ -9,14 +9,14 @@ public class Bounds : MonoBehaviour
     void Awake(){
         edge = GetComponent<EdgeCollider2D>();
     }
-    void Start(){
-        UpdateBounds();
-    }
+
     public void UpdateBounds()
     {
         Rigidbody2D rb = transform.AddComponent<Rigidbody2D>();
         rb.isKinematic = true;
         CompositeCollider2D comp = transform.AddComponent<CompositeCollider2D>();
+        comp.geometryType = CompositeCollider2D.GeometryType.Polygons;
+        comp.GenerateGeometry();
 
         int pathCount = comp.pathCount;
         List<Vector2> edgePoints = new List<Vector2>();
@@ -26,9 +26,11 @@ public class Bounds : MonoBehaviour
             Vector2[] points = new Vector2[comp.GetPathPointCount(i)];
             comp.GetPath(i, points);
             edgePoints.AddRange(points);
+            edgePoints.Add(points[0]);
         }
         edge.points = edgePoints.ToArray();
-        // Destroy(comp);
-        // Destroy(rb);
+
+        Destroy(comp);
+        Destroy(rb);
     }
 }
