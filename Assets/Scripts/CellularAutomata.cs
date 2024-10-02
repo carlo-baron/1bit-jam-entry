@@ -14,15 +14,6 @@ public class CellularAutomata : MonoBehaviour
 
     public float delay;
     public GameObject Tile;
-
-    Bounds bounds;
-    PlayerBoundPos playerBound;
-
-    void Awake()
-    {
-        bounds = GetComponent<Bounds>();
-        playerBound = GetComponentInChildren<PlayerBoundPos>();
-    }
     void Start()
     {
         rows = camSize / cellSize;
@@ -65,7 +56,6 @@ public class CellularAutomata : MonoBehaviour
             }
 
             int[,] nextGrid = makeGrid(rows, cols);
-            bool sameGrid = true;
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
@@ -91,24 +81,6 @@ public class CellularAutomata : MonoBehaviour
                         }
                     }
                 }
-            }
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    if (nextGrid[i, j] != grid[i, j])
-                    {
-                        sameGrid = false;
-                        break;
-                    }
-                }
-            }
-
-            if (sameGrid)
-            {
-                bounds?.UpdateBounds();
-                playerBound?.UpdatePos();
             }
 
             grid = nextGrid;

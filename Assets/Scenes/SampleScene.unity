@@ -133,8 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 114279276}
   - component: {fileID: 114279277}
-  - component: {fileID: 114279280}
-  - component: {fileID: 114279281}
+  - component: {fileID: 114279278}
   m_Layer: 0
   m_Name: Tilemaker
   m_TagString: Untagged
@@ -172,19 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.01
   Tile: {fileID: 7701501745444994260, guid: eec341ae2b794384fafd7cde6450b470, type: 3}
---- !u!114 &114279280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114279274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fbbf618c5ce18043840d8aa7cd17b00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!68 &114279281
+--- !u!68 &114279278
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,8 +187,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.5, y: 0}
-  - {x: 0.5, y: 0}
+  - {x: 19.5, y: 19.5}
+  - {x: -0.5, y: 19.5}
+  - {x: -0.5, y: -0.5}
+  - {x: 19.5, y: -0.5}
+  - {x: 19.5, y: 19.5}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -303,7 +293,6 @@ GameObject:
   - component: {fileID: 1934121604}
   - component: {fileID: 1934121606}
   - component: {fileID: 1934121607}
-  - component: {fileID: 1934121608}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -372,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 1934121600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.5, y: 9.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 114279276}
@@ -395,9 +384,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &1934121606
 CircleCollider2D:
@@ -428,18 +417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
---- !u!114 &1934121608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934121600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d1b11231497c0040bcc6f409add7487, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2133003685
 GameObject:
   m_ObjectHideFlags: 0
