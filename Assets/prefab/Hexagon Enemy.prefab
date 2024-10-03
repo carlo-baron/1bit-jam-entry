@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 10
-  Speed: 4
+  Speed: 5
+  MineValue: 5
+  Damage: 6
 --- !u!60 &6359476511612322690
 PolygonCollider2D:
   m_ObjectHideFlags: 0

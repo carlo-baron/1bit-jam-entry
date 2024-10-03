@@ -4,6 +4,8 @@ public abstract class Enemy : MonoBehaviour
 {
     protected int health;
     protected float speed;
+    protected int mineValue;
+    protected int damage;
     GameObject player;
     void Awake(){
         player = GameObject.FindGameObjectWithTag("player");
@@ -16,6 +18,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
     void Die(){
+        GameObject.FindGameObjectWithTag("player").GetComponent<PlayerMovement>().mine += mineValue;
         Destroy(gameObject);
     }
 }

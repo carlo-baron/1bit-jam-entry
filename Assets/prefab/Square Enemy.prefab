@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 20
   Speed: 2
+  MineValue: 8
+  Damage: 10
 --- !u!50 &1607187969029904610
 Rigidbody2D:
   serializedVersion: 4
