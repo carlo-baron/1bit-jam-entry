@@ -29,10 +29,10 @@ public class CellularAutomata : MonoBehaviour
             }
         }
 
-        StartCoroutine(DelayedUpdate(delay));
+        StartCoroutine(DelayedUpdate());
     }
 
-    private IEnumerator DelayedUpdate(float delay)
+    private IEnumerator DelayedUpdate()
     {
         while (true)
         {
