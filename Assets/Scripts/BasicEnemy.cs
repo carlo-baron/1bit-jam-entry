@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriangleEnemy : Enemy, IDamageable
+public class BasicEnemy : Enemy, IDamageable
 {
     [SerializeField] int Health;
     [SerializeField] float Speed;
