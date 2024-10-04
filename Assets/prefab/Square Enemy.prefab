@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  speed: 1.5
-  mineValue: 15
+  speed: 1
+  mineValue: 25
   damage: 25
 --- !u!50 &1607187969029904610
 Rigidbody2D:

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   speed: 5
-  mineValue: 8
+  mineValue: 10
   damage: 10
 --- !u!60 &6359476511612322690
 PolygonCollider2D:
