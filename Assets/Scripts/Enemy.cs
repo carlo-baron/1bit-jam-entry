@@ -18,7 +18,8 @@ public abstract class Enemy : MonoBehaviour
     }
 
     void Die(){
-        GameObject.FindGameObjectWithTag("player").GetComponent<PlayerMovement>().mine += mineValue;
+        PlayerMovement player = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerMovement>();
+        player.mine = Mathf.Clamp(player.mine + mineValue, 0, 400);
         Destroy(gameObject);
     }
 }

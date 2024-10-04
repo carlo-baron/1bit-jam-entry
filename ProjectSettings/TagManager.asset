@@ -6,6 +6,8 @@ TagManager:
   tags:
   - player
   - enemy
+  - boost
+  - tile
   layers:
   - Default
   - TransparentFX

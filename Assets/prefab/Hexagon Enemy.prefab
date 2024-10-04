@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49693ea291076f2458d25e9a0f02136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9
+  health: 10
   speed: 5
   mineValue: 8
   damage: 10

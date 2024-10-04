@@ -19,13 +19,13 @@ public class HealBullet : Bullet
     void OnTriggerExit2D(Collider2D other){
         if(other.CompareTag("player")){
             StopCoroutine(HealPlayer());
+            player = null;
         }
     }
 
     IEnumerator HealPlayer(){
         while(true){
-            player.Heal(heal);
-            print("healed");
+            player?.Heal(heal);
             yield return new WaitForSeconds(delay);
         }
     }

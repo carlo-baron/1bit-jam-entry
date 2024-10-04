@@ -1,9 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject megaBullet;
     [SerializeField] Transform firePoint;
+    [SerializeField] float megaBulletDelay;
+    GameObject bullet;
+
+    void Start(){
+        bullet = bulletPrefab;
+    }
 
     void Update()
     {
@@ -18,4 +26,12 @@ public class Gun : MonoBehaviour
             newBullet.GetComponent<Bullet>().direction = direction;
         }
     }
+
+    public IEnumerator MegaBullet(){
+        bullet = megaBullet;
+        yield return new WaitForSeconds(megaBulletDelay);
+        bullet = bulletPrefab;
+    }
+
+    
 }

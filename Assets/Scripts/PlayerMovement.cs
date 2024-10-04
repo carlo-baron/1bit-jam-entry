@@ -32,11 +32,19 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     public void Hit(int damage)
     {
         health -= damage;
+        mine -= damage;
     }
 
     public void Heal(int heal){
         if(health < 100){
             health = Mathf.Clamp(health+heal, 0, 100);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.CompareTag("boost")){
+            Destroy(other.gameObject);
+            StartCoroutine(GetComponentInChildren<Gun>().MegaBullet());
         }
     }
 }

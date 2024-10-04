@@ -17,7 +17,9 @@ public class CellularAutomata : MonoBehaviour
             for (int i = 0; i < rows; i++)
             {
                 for(int j = 0; j < cols; j++){
-                    count++;
+                    if(objGrid[i,j] != null){
+                        count++;
+                    }
                 }
             }
             return count;
