@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
     }
 
+
     void FixedUpdate()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -31,5 +32,11 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     public void Hit(int damage)
     {
         health -= damage;
+    }
+
+    public void Heal(int heal){
+        if(health < 100){
+            health = Mathf.Clamp(health+heal, 0, 100);
+        }
     }
 }

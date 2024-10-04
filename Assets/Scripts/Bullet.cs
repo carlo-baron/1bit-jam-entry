@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float speed;
-    [SerializeField] int damage;
+    [SerializeField] protected int damage;
     public Vector2 direction = new Vector2();
     void Awake()
     {
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D other){
+    public virtual void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("enemy")){
             other.GetComponent<IDamageable>().Hit(damage);
             Destroy(gameObject);

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    protected int health;
-    protected float speed;
-    protected int mineValue;
-    protected int damage;
+    [SerializeField] protected int health;
+    [SerializeField] protected float speed;
+    [SerializeField] protected int mineValue;
+    [SerializeField] protected int damage;
     GameObject player;
     void Awake(){
         player = GameObject.FindGameObjectWithTag("player");

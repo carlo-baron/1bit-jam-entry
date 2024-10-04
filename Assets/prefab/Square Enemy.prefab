@@ -125,10 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49693ea291076f2458d25e9a0f02136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 20
-  Speed: 2
-  MineValue: 8
-  Damage: 10
+  health: 50
+  speed: 1
+  mineValue: 15
+  damage: 25
 --- !u!50 &1607187969029904610
 Rigidbody2D:
   serializedVersion: 4

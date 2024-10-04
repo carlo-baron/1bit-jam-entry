@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49693ea291076f2458d25e9a0f02136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 10
-  Speed: 5
-  MineValue: 5
-  Damage: 6
+  health: 9
+  speed: 5
+  mineValue: 8
+  damage: 10
 --- !u!60 &6359476511612322690
 PolygonCollider2D:
   m_ObjectHideFlags: 0
