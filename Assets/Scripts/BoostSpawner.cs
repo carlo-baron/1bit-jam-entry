@@ -8,9 +8,12 @@ public class BoostSpawner : MonoBehaviour
     [SerializeField] float delay;
     BoxCollider2D boxCollider;
     bool checkForTiles = false;
+    AudioManage audioPlayer;
+    
     void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        audioPlayer = FindObjectOfType<AudioManage>();
     }
     void Update()
     {
@@ -37,6 +40,7 @@ public class BoostSpawner : MonoBehaviour
     {
         while (true)
         {
+            audioPlayer.PlaySFX(audioPlayer.boostSpawn);
             Instantiate(boost, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(delay);
         }

@@ -7,12 +7,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] protected int damage;
     public Vector2 direction = new Vector2();
-    void Awake()
+    public virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Start(){
+    public virtual void Start(){
 
         rb.velocity = direction.normalized * speed;
     }

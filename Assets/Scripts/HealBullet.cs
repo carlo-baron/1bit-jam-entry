@@ -6,8 +6,19 @@ public class HealBullet : Bullet
 {
     [SerializeField] int heal;
     [SerializeField] float delay;
-
     PlayerMovement player;
+
+    AudioManage audioPlayer;
+
+    public override void Awake(){
+        audioPlayer = FindObjectOfType<AudioManage>();
+        base.Awake();
+    }
+    public override void Start(){
+        audioPlayer.PlaySFX(audioPlayer.healBullet);
+        base.Start();
+    }
+    
     public override void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("player")){

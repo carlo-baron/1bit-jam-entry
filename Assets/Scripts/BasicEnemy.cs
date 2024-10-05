@@ -7,6 +7,7 @@ public class BasicEnemy : Enemy, IDamageable
 {
     void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("player")){
+            audioPlayer.PlaySFX(audioPlayer.enemiesHit);
             other.gameObject.GetComponent<IDamageable>().Hit(damage);
         }
     }

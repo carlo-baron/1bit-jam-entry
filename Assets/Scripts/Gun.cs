@@ -8,7 +8,11 @@ public class Gun : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] float megaBulletDelay;
     GameObject bullet;
+    AudioManage audioPlayer;
 
+    void Awake(){
+        audioPlayer = FindObjectOfType<AudioManage>();
+    }
     void Start(){
         bullet = bulletPrefab;
     }
@@ -24,6 +28,7 @@ public class Gun : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             GameObject newBullet = Instantiate(bullet, firePoint.position, transform.rotation);
             newBullet.GetComponent<Bullet>().direction = direction;
+            audioPlayer.PlaySFX(audioPlayer.bullet);
         }
     }
 

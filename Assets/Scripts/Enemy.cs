@@ -7,8 +7,11 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int mineValue;
     [SerializeField] protected int damage;
     GameObject player;
+    protected AudioManage audioPlayer;
+
     void Awake(){
         player = GameObject.FindGameObjectWithTag("player");
+        audioPlayer = FindObjectOfType<AudioManage>();
     }
 
     void Update(){
@@ -18,8 +21,9 @@ public abstract class Enemy : MonoBehaviour
     }
 
     void Die(){
+        audioPlayer.PlaySFX(audioPlayer.death);
         PlayerMovement player = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerMovement>();
-        player.mine = Mathf.Clamp(player.mine + mineValue, 0, 400);
+        player.mine = Mathf.Clamp(player.mine + mineValue, 0, 100);
         Destroy(gameObject);
     }
 }

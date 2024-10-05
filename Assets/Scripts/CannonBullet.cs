@@ -5,7 +5,18 @@ using UnityEngine;
 public class CannonBullet : Bullet
 {
     [SerializeField] int health;
+    AudioManage audioPlayer;
 
+    public override void Awake()
+    {
+        audioPlayer = FindObjectOfType<AudioManage>();
+        base.Awake();
+    }
+    public override void Start()
+    {
+        audioPlayer.PlaySFX(audioPlayer.cannon);
+        base.Start();
+    }
     void Update(){
         if(health <= 0){
             Destroy(gameObject);

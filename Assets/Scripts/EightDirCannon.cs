@@ -8,8 +8,11 @@ public class EightDirCannon : MonoBehaviour
     [SerializeField] float delay;
     BoxCollider2D boxCollider;
     bool checkForTiles = false;
+    AudioManage audioPlayer;
+
     void Awake(){
         boxCollider = GetComponent<BoxCollider2D>();
+        audioPlayer = FindObjectOfType<AudioManage>();
     }
     void Update(){
         if(!checkForTiles){
@@ -30,6 +33,7 @@ public class EightDirCannon : MonoBehaviour
 
     IEnumerator SpawnBullets(){
         while(true){
+            audioPlayer.PlaySFX(audioPlayer.bullet);
             for(int i = 0; i < DirectionTypes.EightDirections().Length; i++){
                 GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
                 newBullet.GetComponent<Bullet>().direction = DirectionTypes.EightDirections()[i];

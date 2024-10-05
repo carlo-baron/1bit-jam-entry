@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     [SerializeField] int health;
     public int mine = 0;
 
+    AudioManage audioPlayer;
+
     public int PlayerHealth
     {
         get { return health; }
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioPlayer = FindObjectOfType<AudioManage>();
     }
 
 
@@ -31,8 +34,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
     public void Hit(int damage)
     {
-        health -= damage;
-        mine -= damage;
+        health = Mathf.Clamp(health-damage, 0, 100);
+        mine = Mathf.Clamp(mine-damage, 0, 100);
+        audioPlayer.PlaySFX(audioPlayer.playerHit);
     }
 
     public void Heal(int heal){
@@ -44,6 +48,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("boost")){
             Destroy(other.gameObject);
+            audioPlayer.PlaySFX(audioPlayer.boostCollect);
             StartCoroutine(GetComponentInChildren<Gun>().MegaBullet());
         }
     }

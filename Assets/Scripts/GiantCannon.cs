@@ -8,9 +8,11 @@ public class GiantCannon : MonoBehaviour
     [SerializeField] float delay;
     BoxCollider2D boxCollider;
     bool checkForTiles = false;
+
     void Awake(){
         boxCollider = GetComponent<BoxCollider2D>();
     }
+    
     void Update(){
         if(!checkForTiles){
             Collider2D[] colliders = Physics2D.OverlapBoxAll(boxCollider.bounds.center, boxCollider.bounds.size, 0f);
